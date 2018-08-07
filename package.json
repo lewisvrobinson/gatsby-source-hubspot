@@ -1,0 +1,14 @@
+{
+  "name": "gatsby-source-hubspot",
+  "version": "1.0.0",
+  "description": "Gatsby source plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lewis Robinson",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.2.0"
+  }
+}
