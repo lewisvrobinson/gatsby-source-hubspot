@@ -26,11 +26,11 @@ module.exports = {
 
 **NOTE:** More information on [Hubspot authentication](https://developers.hubspot.com/docs/methods/auth/oauth-overview). 
 
-## Configuration Options
+## Filter Options
 
-The configuration options for this plugin mirror the [“Optional query string filters & options”](https://developers.hubspot.com/docs/methods/blogv2/get_blog_posts). Please review those docs for more details.
+The `filter` options for this plugin mirror the [“Optional query string filters & options”](https://developers.hubspot.com/docs/methods/blogv2/get_blog_posts). Please review those docs for more details.
 
-|Parameter name	      |Description
+| Parameter name	    | Description
 |---------------------|-----------------------------------------------------------------------------------
 | `limit`             | The number of items to return. Defaults to 20
 | `offset`            | The offset set to start returning rows from. Defaults to 0.
@@ -46,7 +46,7 @@ The configuration options for this plugin mirror the [“Optional query string f
 | `state`             | DRAFT, PUBLISHED, or SCHEDULED.
 | `order_by`          | Return the posts ordered by a particular field value. Blog posts can currently only be sorted by publish_date. Use a negative value to sort in descending order (e.g. order_by=-publish_date).                                                                                                                                                                                            |
 
-### Example Configuration
+### Example Filter Option Configuration
 
 ```js
 module.exports = {
