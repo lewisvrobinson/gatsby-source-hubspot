@@ -30,10 +30,19 @@ exports.sourceNodes = ({ actions, createNodeId }, configOptions) => {
   }
 
   const API_KEY = configOptions.key
-  const filters = queryString.stringify(configOptions.filters)
-  const API_ENDPOINT = `https://api.hubapi.com/content/api/v2/blog-posts?hapikey=${API_KEY}&${filters}`
+  const filters = configOptions.filters
+    ? queryString.stringify(configOptions.filters)
+    : null
+  const API_ENDPOINT = `https://api.hubapi.com/content/api/v2/blog-posts?hapikey=${API_KEY}${
+    filters ? '&' + filters : ''
+  }`
 
-  console.log(API_ENDPOINT)
+  if (!API_KEY) throw new Error('No Hubspot API key provided')
+
+  console.log(
+    '\n  gatsby-source-hubspot\n  ------------------------- \n  Fetching posts from: \x1b[33m%s\x1b[0m',
+    `\n  ${API_ENDPOINT}\n`
+  )
 
   return fetch(API_ENDPOINT)
     .then(response => response.json())
