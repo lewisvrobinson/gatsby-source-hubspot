@@ -77,14 +77,38 @@ query PostQuery {
   allHubspotPost(limit: 10) {
     edges {
       node {
-        id
-        title
-        body
+        id,
+        title,
+        body,
+        state,
         author {
-          name
-        }
-        state
-        created
+          id
+          avatar,
+          name,
+          full_name,
+          bio,
+          email,
+          facebook,
+          google_plus,
+          linkedin,
+          twitter,
+          twitter_username,
+          website,
+          slug
+        },
+        feature_image {
+          url,
+          alt_text
+        },
+        meta {
+          title,
+          description
+        },
+        summary,
+        published,
+        updated,
+        created,
+        slug
       } 
     }
   }
