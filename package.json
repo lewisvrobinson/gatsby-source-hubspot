@@ -1,14 +1,18 @@
 {
   "name": "gatsby-source-hubspot",
-  "version": "1.0.0",
   "description": "Gatsby source plugin",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Lewis Robinson",
-  "license": "ISC",
+  "repository": "https://github.com/lewisvrobinson/gatsby-source-hubspot.git",
+  "author": "Lewis Robinson <lewisvrobinson@gmail.com>",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "pixabay",
+    "photos"
+  ],
+  "license": "MIT",
   "dependencies": {
-    "node-fetch": "^2.2.0"
-  }
+    "node-fetch": "^2.2.0",
+    "query-string": "^6.1.0"
+  },
+  "version": "1.0.0"
 }
