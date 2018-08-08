@@ -70,7 +70,7 @@ module.exports = {
 
 Once the plugin is configured, two new queries are available in GraphQL: `allHubspotPost` and `HubspotPost`.
 
-Here’s an example query to load 10 images:
+Here’s an example query to load 10 posts:
 
 ```gql
 query PostQuery {
