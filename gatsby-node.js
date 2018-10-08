@@ -2,8 +2,8 @@ const fetch = require('node-fetch')
 const queryString = require('query-string')
 const crypto = require('crypto')
 
-exports.sourceNodes = ({ actions, createNodeId }, configOptions) => {
-  const { createNode } = actions
+exports.sourceNodes = ({ boundActionCreators, createNodeId }, configOptions) => {
+  const { createNode } = boundActionCreators
 
   delete configOptions.plugins
 
