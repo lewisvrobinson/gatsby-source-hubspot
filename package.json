@@ -9,6 +9,9 @@
     "hubspot"
   ],
   "license": "MIT",
+  "peerDependencies": {
+    "gatsby": ">=1"
+  },
   "dependencies": {
     "node-fetch": "^2.2.0",
     "query-string": "^6.1.0"
