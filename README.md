@@ -9,6 +9,13 @@ This source plugin for Gatsby will make posts from a Hubspot blog available in G
 yarn add gatsby-source-hubspot
 ```
 
+_For Gatsby version 1 support use version 1.0.0 of this package_
+```sh
+yarn add gatsby-source-hubspot@1.0.0
+```
+
+## Configuration
+
 In `gatsby-config.js`:
 
 ```js
