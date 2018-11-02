@@ -71,7 +71,7 @@ exports.sourceNodes = ({ boundActionCreators, createNodeId }, configOptions) => 
               }
             : null,
           feature_image: {
-            url: post.feature_image,
+            url: post.featured_image,
             alt_text: post.featured_image_alt_text
           },
           meta: {
