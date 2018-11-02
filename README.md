@@ -1,5 +1,7 @@
 # gatsby-source-hubspot
 
+[![npm version](https://badge.fury.io/js/gatsby-source-hubspot.svg)](https://badge.fury.io/js/gatsby-source-hubspot)
+
 This source plugin for Gatsby will make posts from a Hubspot blog available in GraphQL queries.
 
 ## Installation
