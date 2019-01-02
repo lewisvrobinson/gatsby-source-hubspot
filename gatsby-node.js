@@ -56,7 +56,7 @@ exports.sourceNodes = ({ boundActionCreators, createNodeId }, configOptions) => 
           author: post.blog_post_author
             ? {
                 id: post.blog_post_author.id,
-                avatar: post.blog_post_author.avatar.avatar,
+                avatar: post.blog_post_author.avatar,
                 name: post.blog_post_author.display_name,
                 full_name: post.blog_post_author.full_name,
                 bio: post.blog_post_author.bio,
