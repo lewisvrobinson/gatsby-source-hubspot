@@ -82,7 +82,8 @@ exports.sourceNodes = ({ boundActionCreators, createNodeId }, configOptions) => 
           published: post.publish_date,
           updated: post.updated,
           created: post.created,
-          slug: post.slug
+          slug: post.slug,
+          __rawResponse: post
         }
       })
       cleanData.forEach(post => {
