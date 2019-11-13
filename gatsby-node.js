@@ -111,11 +111,13 @@ exports.sourceNodes = ({ boundActionCreators, createNodeId }, configOptions) => 
                 url: post.url
               }
 
-              topics.forEach((topic) => {
-                if (post.topic_ids.includes(topic.id)) {
-                  p.topics.push(topic)
-                }
-              })
+              if (post.topic_ids.length) {
+                topics.forEach((topic) => {
+                  if (post.topic_ids.includes(topic.id)) {
+                    p.topics.push(topic)
+                  }
+                })
+              }
 
               return p
             })
