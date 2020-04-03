@@ -10,7 +10,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": ">=1"
+    "gatsby": ">=2"
   },
   "dependencies": {
     "node-fetch": "^2.2.0",
