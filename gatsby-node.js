@@ -36,7 +36,12 @@ exports.sourceNodes = ({ boundActionCreators, createNodeId }, configOptions) => 
   const API_ENDPOINT_POST = `https://api.hubapi.com/content/api/v2/blog-posts?hapikey=${API_KEY}${
       filters ? '&' + filters : ''
     }`
-  const API_ENDPOINT_TOPIC = `https://api.hubapi.com/blogs/v3/topics?hapikey=${API_KEY}`
+  const topicFilters = configOptions.topics && configOptions.topics.filters
+        ? queryString.stringify(configOptions.topics.filters)
+        : null
+  const API_ENDPOINT_TOPIC = `https://api.hubapi.com/blogs/v3/topics?hapikey=${API_KEY}${
+      topicFilters ? '&' + topicFilters : ''
+  }`
 
   if (!API_KEY) throw new Error('No Hubspot API key provided')
 
