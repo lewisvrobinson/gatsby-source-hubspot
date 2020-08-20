@@ -133,3 +133,23 @@ exports.sourceNodes = ({ boundActionCreators, createNodeId }, configOptions) => 
           })
     })
 }
+
+exports.onCreateNode = async ({
+  node,
+  actions: { createNode },
+  createNodeId,
+  getCache,
+}) => {
+  if (node.internal.type === 'HubspotPost') {
+    const fileNode = await createRemoteFileNode({
+      url: node.feature_image.url,
+      parentNodeId: node.id,
+      createNode,
+      createNodeId,
+      getCache,
+    })
+    if (fileNode) {
+      node.feature_imageSharp___NODE = fileNode.id
+    }
+  }
+}
