@@ -140,7 +140,7 @@ exports.onCreateNode = async ({
   createNodeId,
   getCache,
 }) => {
-  if (node.internal.type === 'HubspotPost') {
+  if (node.internal.type === 'HubspotPost' && node.feature_image.url) {
     const fileNode = await createRemoteFileNode({
       url: node.feature_image.url,
       parentNodeId: node.id,
