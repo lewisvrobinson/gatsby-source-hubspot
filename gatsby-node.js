@@ -113,7 +113,8 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
                 updated: post.updated,
                 created: post.created,
                 slug: post.slug,
-                url: post.url
+                url: post.url,
+                name: post.name
               }
 
               if (post.topic_ids.length) {
