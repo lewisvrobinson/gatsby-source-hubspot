@@ -1,6 +1,15 @@
 # gatsby-source-hubspot
 
-[![npm version](https://badge.fury.io/js/gatsby-source-hubspot.svg)](https://badge.fury.io/js/gatsby-source-hubspot)
+[![npm version](https://badge.fury.io/js/gatsby-source-hubspot.svg)](https://badge.fury.io/js/gatsby-source-hubspot) ![](https://img.shields.io/badge/gatsby-v2-yellow)
+
+---
+
+#### ⚠️ Deprication notice: 
+
+This package currently only supports up to Gatsby v2 and should therefore be considered **depricated** for newer version. 
+For the time being, the repo will remain active in case there are any critical fixes needed for consumers using older versions of Gatsby.
+
+---
 
 This source plugin for Gatsby will make posts from a Hubspot blog available in GraphQL queries.
 
