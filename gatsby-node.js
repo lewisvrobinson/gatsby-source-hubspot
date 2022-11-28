@@ -29,19 +29,17 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
     return nodeData
   }
 
-  const API_KEY = configOptions.key
+
   const filters = configOptions.filters
   const API_TOKEN = configOptions.token
   
     ? queryString.stringify(configOptions.filters)
     : null
-  const API_ENDPOINT_POST_KEY  = `https://api.hubapi.com/content/api/v2/blog-posts?hapikey=${API_KEY}${
-      filters ? '&' + filters : ''
-    }`
+
   
-    const API_ENDPOINT_POST_TOKEN = `https://api.hubapi.com/content/api/v2/blog-posts', {
+    const API_ENDPOINT_POST = `https://api.hubapi.com/content/api/v2/blog-posts, {
       method: "GET",
-      headers: {"Authorization": "Bearer ${API_TOKEN}";"Content-type": "application/json;"},
+      headers: {"Authorization": "Bearer ${API_TOKEN}";"Accept-type": "application/json;"},
       ${filters}
     }`
   
@@ -50,22 +48,18 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
         ? queryString.stringify(configOptions.topics.filters)
         : null
   
-  const API_ENDPOINT_TOPIC_KEY = `https://api.hubapi.com/blogs/v3/topics?hapikey=${API_KEY}${
-      topicFilters ? '&' + topicFilters : ''
-  }`
-  
-    const API_ENDPOINT_TOPIC_TOKEN = `'https://api.hubapi.com/content/api/v2/blog-posts', {
+
+    const API_ENDPOINT_TOPIC = `'https://api.hubapi.com/blogs/v3/topics, {
   method: "GET",
-  headers: {"Authorization": "Bearer ${API_TOKEN}";"Content-type": "application/json;"},
+  headers: {"Authorization": "Bearer ${API_TOKEN}";"Accept-type": "application/json;"},
   ${topicFilters}
 }`
 
-  if (!API_KEY && !API_TOKEN) throw new Error('No Hubspot API key or token provided')
+  if (!API_TOKEN) throw new Error('No Hubspot token provided')
   
   let topics = []
   
-  const API_ENDPOINT_TOPIC = API_KEY ? API_ENDPOINT_TOPIC_KEY : API_ENDPOINT_TOPIC_TOKEN;
-  const API_ENDPOINT_POST = API_KEY ? API_ENDPOINT_POST_KEY : API_ENDPOINT_POST_TOKEN;
+
 
   console.log(
     '\n  gatsby-source-hubspot\n  ------------------------- \n  Fetching post topics from: \x1b[33m',
