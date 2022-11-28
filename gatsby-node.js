@@ -70,7 +70,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
 
 
   return fetch(API_ENDPOINT_TOPIC)
-    .then(response => response.json())
+    .then(response => {console.log(response); response.json();)
     .then(data => {
       topics = data.objects.map(topic => {
         return {
