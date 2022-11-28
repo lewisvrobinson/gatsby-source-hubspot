@@ -49,7 +49,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
         : null
   
 
-    const API_ENDPOINT_TOPIC = `'https://api.hubapi.com/blogs/v3/topics, {
+    const API_ENDPOINT_TOPIC = `https://api.hubapi.com/blogs/v3/topics, {
   method: "GET",
   headers: {"Authorization": "Bearer ${API_TOKEN}";"Accept-type": "application/json;"},
   ${topicFilters}
