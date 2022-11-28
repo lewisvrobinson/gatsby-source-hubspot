@@ -69,7 +69,6 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
 
 
   return fetch(API_ENDPOINT_TOPIC)
-    .then(response => {console.log(response); response.json();})
     .then(data => {
       topics = data.objects.map(topic => {
         return {
@@ -82,7 +81,6 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
     })
     .then(() => {
       return fetch(API_ENDPOINT_POST)
-          .then(response => {console.log(response); response.json();})
           .then(data => {
             const cleanData = data.objects.map(post => {
               const p = {
