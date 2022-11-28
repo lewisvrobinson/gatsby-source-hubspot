@@ -37,10 +37,11 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
     : null
 
   
-    const API_ENDPOINT_POST = `https://api.hubapi.com/content/api/v2/blog-posts, {
+    const API_ENDPOINT_POST = `https://api.hubapi.com/content/api/v2/blog-posts${
+    filters ? '&' + filters : ''
+  }, {
       method: "GET",
-      headers: {"Authorization": "Bearer ${API_TOKEN}"},
-      ${filters && filters}
+      headers: {"Authorization": "Bearer ${API_TOKEN}"}
     }`
   
   
