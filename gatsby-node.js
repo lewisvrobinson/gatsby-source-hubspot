@@ -40,7 +40,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
     const API_ENDPOINT_POST = `https://api.hubapi.com/content/api/v2/blog-posts, {
       method: "GET",
       headers: {"Authorization": "Bearer ${API_TOKEN}"},
-      ${filters}
+      ${filters && filters}
     }`
   
   
@@ -52,7 +52,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
     const API_ENDPOINT_TOPIC = `https://api.hubapi.com/blogs/v3/topics, {
   method: "GET",
   headers: {"Authorization": "Bearer ${API_TOKEN}"},
-  ${topicFilters}
+  ${topicFilters && topicFilters}
 }`
 
   if (!API_TOKEN) throw new Error('No Hubspot token provided')
