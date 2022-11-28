@@ -35,7 +35,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
   
     ? queryString.stringify(configOptions.filters)
     : null
-  const API_ENDPOINT_POST = `https://api.hubapi.com/content/api/v2/blog-posts?hapikey=${API_KEY}${
+  const API_ENDPOINT_POST_KEY  = `https://api.hubapi.com/content/api/v2/blog-posts?hapikey=${API_KEY}${
       filters ? '&' + filters : ''
     }`
   
@@ -50,7 +50,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
         ? queryString.stringify(configOptions.topics.filters)
         : null
   
-  const API_ENDPOINT_TOPIC = `https://api.hubapi.com/blogs/v3/topics?hapikey=${API_KEY}${
+  const API_ENDPOINT_TOPIC_KEY = `https://api.hubapi.com/blogs/v3/topics?hapikey=${API_KEY}${
       topicFilters ? '&' + topicFilters : ''
   }`
   
@@ -61,6 +61,11 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
 }`
 
   if (!API_KEY && !API_TOKEN) throw new Error('No Hubspot API key or token provided')
+  
+  let topics = []
+  
+  const API_ENDPOINT_TOPIC = API_KEY ? API_ENDPOINT_TOPIC_KEY : API_ENDPOINT_TOPIC_TOKEN;
+  const API_ENDPOINT_POST = API_KEY ? API_ENDPOINT_POST_KEY : API_ENDPOINT_POST_TOKEN;
 
   console.log(
     '\n  gatsby-source-hubspot\n  ------------------------- \n  Fetching post topics from: \x1b[33m',
@@ -69,9 +74,9 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
     `\n  ${API_ENDPOINT_POST}\x1b[0m\n`
   )
 
-  let topics = []
 
-  return fetch(API_KEY ? API_ENDPOINT_TOPIC : API_ENDPOINT_TOPIC_TOKEN)
+
+  return fetch(API_ENDPOINT_TOPIC)
     .then(response => response.json())
     .then(data => {
       topics = data.objects.map(topic => {
@@ -84,7 +89,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
       })
     })
     .then(() => {
-      return fetch(API_KEY ? API_ENDPOINT_POST : API_ENDPOINT_POST_TOKEN)
+      return fetch(API_ENDPOINT_POST)
           .then(response => response.json())
           .then(data => {
             const cleanData = data.objects.map(post => {
