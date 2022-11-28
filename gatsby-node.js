@@ -29,19 +29,17 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
     return nodeData
   }
 
-
-  const filters = configOptions.filters
   const API_TOKEN = configOptions.token
   
+    const filters = configOptions.filters
     ? queryString.stringify(configOptions.filters)
     : null
 
   
-    const API_ENDPOINT_POST = `https://api.hubapi.com/content/api/v2/blog-posts${
-    filters ? '&' + filters : ''
-  }, {
+    const API_ENDPOINT_POST = `https://api.hubapi.com/content/api/v2/blog-posts, {
       method: "GET",
-      headers: {"Authorization": "Bearer ${API_TOKEN}"}
+      headers: {"Authorization": "Bearer ${API_TOKEN}"},
+      ${filters && filters}
     }`
   
   
