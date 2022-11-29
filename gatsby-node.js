@@ -39,8 +39,8 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
     const API_ENDPOINT_POST = `https://api.hubapi.com/content/api/v2/blog-posts${filters && `?${filters}`}, {
       method: 'GET',
       headers: {
-        'Authorization': 'Bearer ${API_TOKEN}',
-        'Accept-Type': 'application/json'
+        Authorization: 'Bearer ${API_TOKEN}',
+        Accept-Type: 'application/json'
       },
      }`
   
@@ -53,8 +53,8 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
     const API_ENDPOINT_TOPIC = `https://api.hubapi.com/blogs/v3/topics${topicFilters && `?${topicFilters}`}, {
       method: 'GET',
       headers: {
-        'Authorization': 'Bearer ${API_TOKEN}',
-        'Accept-Type': 'application/json'
+        Authorization: 'Bearer ${API_TOKEN}',
+        Accept-Type: 'application/json'
       },
     }`
 
