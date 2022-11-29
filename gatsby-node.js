@@ -86,8 +86,8 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
       })
     })
     .then(() => {
-    .then(response => response.json())
       return fetch(API_ENDPOINT_POST)
+        .then(response => response.json())
           .then(data => {
             const cleanData = data.objects.map(post => {
               const p = {
