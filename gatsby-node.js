@@ -42,7 +42,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
       credentials: 'include',
       headers: {
         Authorization: 'Bearer ${API_TOKEN}',
-        Accept-Type: 'application/json'
+        Accept: 'application/json'
       },
      }`
   
@@ -58,7 +58,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
         credentials: 'include',
       headers: {
         Authorization: 'Bearer ${API_TOKEN}',
-        Accept-Type: 'application/json',
+        Accept: 'application/json',
       },
     }`
 
