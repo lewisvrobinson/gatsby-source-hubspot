@@ -36,15 +36,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
     : null
 
   
-    const API_ENDPOINT_POST = `https://api.hubapi.com/content/api/v2/blog-posts${filters && `?${filters}`}, {
-      method: 'GET',
-      withCredentials: true,
-      credentials: 'include',
-      headers: {
-        Authorization: 'Bearer ${API_TOKEN}',
-        Accept: 'application/json'
-      },
-     }`
+    const API_ENDPOINT_POST = `https://api.hubapi.com/content/api/v2/blog-posts${filters && `?${filters}`}`
   
   
   const topicFilters = configOptions.topics && configOptions.topics.filters
@@ -52,15 +44,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
         : null
   
 
-    const API_ENDPOINT_TOPIC = `https://api.hubapi.com/blogs/v3/topics${topicFilters && `?${topicFilters}`}, {
-      method: 'GET',
-              withCredentials: true,
-        credentials: 'include',
-      headers: {
-        Authorization: 'Bearer ${API_TOKEN}',
-        Accept: 'application/json',
-      },
-    }`
+    const API_ENDPOINT_TOPIC = `https://api.hubapi.com/blogs/v3/topics${topicFilters && `?${topicFilters}`}`
 
   if (!API_TOKEN) throw new Error('No Hubspot token provided')
   
@@ -77,7 +61,13 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
 
 
 
-  return fetch(API_ENDPOINT_TOPIC)
+  return fetch(API_ENDPOINT_TOPIC, {
+  method: 'GET',
+  headers: {
+    Authorization: `Bearer ${API_TOKEN}`,
+    Accept: 'application/json',
+  },
+})
   .then(response => response.json())
     .then(data => {
     console.log(data); 
@@ -91,7 +81,13 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
       })
     })
     .then(() => {
-      return fetch(API_ENDPOINT_POST)
+      return fetch(API_ENDPOINT_POST, {
+  method: 'GET',
+  headers: {
+    Authorization: `Bearer ${API_TOKEN}`,
+    Accept: 'application/json',
+  },
+})
         .then(response => response.json())
           .then(data => {
         console.log(data);
