@@ -70,6 +70,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
 })
   .then(response => response.json())
     .then(data => {
+      console.log("TOPICS DATA", data)
       topics = data.objects.map(topic => {
         return {
           id: topic.id,
@@ -89,6 +90,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }, configOpt
 })
         .then(response => response.json())
           .then(data => {
+            console.log("POSTS DATA", data)
             const cleanData = data.objects.map(post => {
               const p = {
                 id: post.id,
